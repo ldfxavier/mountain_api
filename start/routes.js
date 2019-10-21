@@ -15,6 +15,7 @@ Route.group(() => {
 }).middleware(['auth'])
 
 Route.post('/sessions', 'SessionController.store').validator('Session')
+Route.get('/sessions', 'SessionController.show')
 
 Route.post('/passwords', 'ForgotPasswordController.store')
 Route.put('/passwords', 'ForgotPasswordController.update')
