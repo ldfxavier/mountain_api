@@ -43,6 +43,14 @@ class CotaController {
     }
   }
 
+  async updateall ({ params, request, response }) {
+    const { percent } = request.all()
+
+    const cota = await Cota.query().update({ percent })
+
+    return cota
+  }
+
   async destroy ({ params, request, response }) {}
 }
 

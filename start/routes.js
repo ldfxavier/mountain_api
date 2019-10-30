@@ -12,6 +12,7 @@ Route.group(() => {
   Route.post('/files', 'FileController.store')
 
   Route.resource('user.cota', 'CotaController').apiOnly()
+  Route.put('/cota/all', 'CotaController.updateall')
 }).middleware(['auth'])
 
 Route.post('/sessions', 'SessionController.store').validator('Session')
