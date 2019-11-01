@@ -1,7 +1,6 @@
 'use strict'
 
 const moment = require('moment')
-const crypto = require('crypto')
 const User = use('App/Models/User')
 const Mail = use('Mail')
 
@@ -11,7 +10,7 @@ class ForgotPasswordController {
       const email = request.input('email')
       const user = await User.findByOrFail('email', email)
 
-      user.token = crypto.randomBytes(10).toString('hex')
+      user.token = Math.floor(100000 + Math.random() * 900000)
       user.token_created_at = new Date()
 
       await user.save()
